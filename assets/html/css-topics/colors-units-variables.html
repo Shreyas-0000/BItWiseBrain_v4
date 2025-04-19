@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors, Units & CSS Variables - BitWiseBrain</title>
+    <link rel="stylesheet" href="../../css/shared-navbar.css">
+    <link rel="stylesheet" href="../../css/courses.css">
+    <link rel="stylesheet" href="../../css/course-details.css">
+    <link rel="stylesheet" href="../../css/game.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="button-group">
+            <a href="../course-details.html" class="back-btn">← Back to CSS Topics</a>
+        </div>
+        <div class="topic-content">
+            <h2>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                Colors, Units & CSS Variables
+            </h2>
+            <div class="topic-description">
+                <p>CSS provides various ways to specify colors and measurements. CSS Variables (Custom Properties) allow you to store and reuse values throughout your stylesheet.</p>
+                <p>Understanding different color formats and units is essential for creating consistent and maintainable designs.</p>
+            </div>
+            <div class="learning-process">
+                <h3>
+                    <ion-icon name="book-outline"></ion-icon>
+                    Learning Process
+                </h3>
+                <div class="key-concepts">
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Color Formats: Hex, RGB, RGBA, HSL, and named colors
+                    </li>
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Units: Absolute (px, pt) and relative (em, rem, %) units
+                    </li>
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        CSS Variables: Defining and using custom properties
+                    </li>
+                </div>
+                <div class="code-example">
+                    <h4>Color Formats:</h4>
+                    <pre>/* Hex color */
+color: #FF0000;
+
+/* RGB color */
+color: rgb(255, 0, 0);
+
+/* RGBA color with opacity */
+color: rgba(255, 0, 0, 0.5);
+
+/* HSL color */
+color: hsl(0, 100%, 50%);
+
+/* Named color */
+color: red;</pre>
+                </div>
+                <div class="code-example">
+                    <h4>Units:</h4>
+                    <pre>/* Absolute units */
+width: 100px;
+font-size: 12pt;
+
+/* Relative units */
+width: 50%;
+font-size: 1.2em;
+padding: 1rem;</pre>
+                </div>
+                <div class="code-example">
+                    <h4>CSS Variables:</h4>
+                    <pre>:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --font-size: 16px;
+}
+
+body {
+  color: var(--primary-color);
+  font-size: var(--font-size);
+}
+
+.button {
+  background-color: var(--secondary-color);
+}</pre>
+                </div>
+            </div>
+            <div class="real-world-example">
+                <h4>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    Real-World Example
+                </h4>
+                <p>CSS Variables are commonly used in modern web design to create consistent color schemes and maintain design systems. They make it easy to update the entire website's appearance by changing a few values.</p>
+            </div>
+            <div class="interactive-demo">
+                <h5>
+                    <ion-icon name="code-slash-outline"></ion-icon>
+                    Interactive Demo
+                </h5>
+                <div class="demo-content">
+                    <p>Try different color formats and units:</p>
+                    <div class="demo-buttons">
+                        <button class="demo-btn" onclick="applyHexColor()">Hex Color</button>
+                        <button class="demo-btn" onclick="applyRgbColor()">RGB Color</button>
+                        <button class="demo-btn" onclick="applyHslColor()">HSL Color</button>
+                        <button class="demo-btn" onclick="applyCssVariables()">CSS Variables</button>
+                        <button class="demo-btn" onclick="resetColors()">Reset Colors</button>
+                    </div>
+                    <div id="color-demo">
+                        <div class="color-box" id="box1">Box 1</div>
+                        <div class="color-box" id="box2">Box 2</div>
+                        <div class="color-box" id="box3">Box 3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="../../html/quiz-setup.html" class="quiz-btn">
+                    <ion-icon name="help-circle-outline"></ion-icon>
+                    Start Quiz
+                </a>
+                <button class="puzzles-btn" onclick="startPuzzles('colors-units-variables')">
+                    <ion-icon name="puzzle-outline"></ion-icon>
+                    Puzzles
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function applyHexColor() {
+            document.getElementById('box1').style.backgroundColor = '#FF0000';
+            document.getElementById('box2').style.backgroundColor = '#00FF00';
+            document.getElementById('box3').style.backgroundColor = '#0000FF';
+        }
+
+        function applyRgbColor() {
+            document.getElementById('box1').style.backgroundColor = 'rgb(255, 0, 0)';
+            document.getElementById('box2').style.backgroundColor = 'rgb(0, 255, 0)';
+            document.getElementById('box3').style.backgroundColor = 'rgb(0, 0, 255)';
+        }
+
+        function applyHslColor() {
+            document.getElementById('box1').style.backgroundColor = 'hsl(0, 100%, 50%)';
+            document.getElementById('box2').style.backgroundColor = 'hsl(120, 100%, 50%)';
+            document.getElementById('box3').style.backgroundColor = 'hsl(240, 100%, 50%)';
+        }
+
+        function applyCssVariables() {
+            const style = document.createElement('style');
+            style.textContent = `
+                :root {
+                    --color1: #FF0000;
+                    --color2: #00FF00;
+                    --color3: #0000FF;
+                }
+                #box1 { background-color: var(--color1); }
+                #box2 { background-color: var(--color2); }
+                #box3 { background-color: var(--color3); }
+            `;
+            document.head.appendChild(style);
+        }
+
+        function resetColors() {
+            const boxes = document.querySelectorAll('.color-box');
+            boxes.forEach(box => {
+                box.style.backgroundColor = '';
+            });
+            const styles = document.querySelectorAll('style');
+            styles.forEach(style => style.remove());
+        }
+    </script>
+</body>
+</html> 

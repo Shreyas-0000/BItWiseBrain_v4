@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Syntax, Selectors & Specificity - BitWiseBrain</title>
+    <link rel="stylesheet" href="../../css/shared-navbar.css">
+    <link rel="stylesheet" href="../../css/courses.css">
+    <link rel="stylesheet" href="../../css/course-details.css">
+    <link rel="stylesheet" href="../../css/game.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="button-group">
+            <a href="../course-details.html" class="back-btn">← Back to CSS Topics</a>
+        </div>
+        <div class="topic-content">
+            <h2>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                CSS Syntax, Selectors & Specificity
+            </h2>
+            <div class="topic-description">
+                <p>CSS rules consist of selectors and declaration blocks. Selectors target HTML elements, while declaration blocks contain property-value pairs that define the styling.</p>
+                <p>Understanding CSS specificity is crucial for determining which styles will be applied when multiple rules target the same element.</p>
+            </div>
+            <div class="learning-process">
+                <h3>
+                    <ion-icon name="book-outline"></ion-icon>
+                    Learning Process
+                </h3>
+                <div class="key-concepts">
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Basic Selectors: Type, Class, and ID selectors
+                    </li>
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Combinators: Descendant, Child, and Adjacent sibling selectors
+                    </li>
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Specificity: How browsers determine which styles to apply
+                    </li>
+                </div>
+                <div class="code-example">
+                    <h4>Basic Selectors:</h4>
+                    <pre>/* Type selector */
+p {
+  color: blue;
+}
+
+/* Class selector */
+.text-red {
+  color: red;
+}
+
+/* ID selector */
+#main-title {
+  font-size: 24px;
+}</pre>
+                </div>
+                <div class="code-example">
+                    <h4>Combinators:</h4>
+                    <pre>/* Descendant selector */
+div p {
+  color: green;
+}
+
+/* Child selector */
+ul > li {
+  list-style: none;
+}
+
+/* Adjacent sibling selector */
+h2 + p {
+  margin-top: 0;
+}</pre>
+                </div>
+                <div class="code-example">
+                    <h4>Specificity Example:</h4>
+                    <pre>/* Specificity: 0,0,1 */
+p {
+  color: blue;
+}
+
+/* Specificity: 0,1,0 */
+.text-red {
+  color: red;
+}
+
+/* Specificity: 1,0,0 */
+#main-title {
+  color: green;
+}</pre>
+                </div>
+            </div>
+            <div class="real-world-example">
+                <h4>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    Real-World Example
+                </h4>
+                <p>In a large website, you might have multiple CSS rules targeting the same elements. Understanding specificity helps you write more maintainable CSS and avoid unexpected styling issues.</p>
+            </div>
+            <div class="interactive-demo">
+                <h5>
+                    <ion-icon name="code-slash-outline"></ion-icon>
+                    Interactive Demo
+                </h5>
+                <div class="demo-content">
+                    <p>Try applying different selectors to style these elements:</p>
+                    <div class="demo-buttons">
+                        <button class="demo-btn" onclick="applyTypeSelector()">Type Selector</button>
+                        <button class="demo-btn" onclick="applyClassSelector()">Class Selector</button>
+                        <button class="demo-btn" onclick="applyIdSelector()">ID Selector</button>
+                        <button class="demo-btn" onclick="resetSelectors()">Reset Styles</button>
+                    </div>
+                    <div id="demo-container">
+                        <p>This is a paragraph</p>
+                        <p class="special">This is a special paragraph</p>
+                        <p id="unique">This is a unique paragraph</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="../../html/quiz-setup.html" class="quiz-btn">
+                    <ion-icon name="help-circle-outline"></ion-icon>
+                    Start Quiz
+                </a>
+                <button class="puzzles-btn" onclick="startPuzzles('css-syntax-selectors')">
+                    <ion-icon name="puzzle-outline"></ion-icon>
+                    Puzzles
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function applyTypeSelector() {
+            const style = document.createElement('style');
+            style.textContent = 'p { color: blue; font-weight: bold; }';
+            document.head.appendChild(style);
+        }
+
+        function applyClassSelector() {
+            const style = document.createElement('style');
+            style.textContent = '.special { color: red; font-style: italic; }';
+            document.head.appendChild(style);
+        }
+
+        function applyIdSelector() {
+            const style = document.createElement('style');
+            style.textContent = '#unique { color: green; text-decoration: underline; }';
+            document.head.appendChild(style);
+        }
+
+        function resetSelectors() {
+            const styles = document.querySelectorAll('style');
+            styles.forEach(style => style.remove());
+        }
+    </script>
+</body>
+</html> 

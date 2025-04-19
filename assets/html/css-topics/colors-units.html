@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors, Units & CSS Variables - BitWiseBrain</title>
+    <link rel="stylesheet" href="../../css/css-topics.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="css-topic-container">
+        <h2 class="css-topic-header">
+            <ion-icon name="color-palette-outline"></ion-icon>
+            Colors, Units & CSS Variables
+        </h2>
+        
+        <div class="css-topic-description">
+            <p>CSS supports different color values and measurement units. Variables help reuse values throughout stylesheets.</p>
+        </div>
+
+        <div class="learning-process">
+            <h3>
+                <ion-icon name="book-outline"></ion-icon>
+                Learning Process
+            </h3>
+            
+            <div class="key-concepts">
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    CSS supports various color formats (hex, rgb, hsl)
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Different units for measurements (px, em, rem, %)
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    CSS variables for reusable values
+                </li>
+            </div>
+
+            <div class="code-example">
+                <h4>CSS Variables:</h4>
+                <pre>:root {
+  --main-color: #3498db;
+  --text-color: rgb(255, 255, 255);
+  --spacing: 2em;
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Using Variables:</h4>
+                <pre>body {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  font-size: 16px;
+  margin: var(--spacing);
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Different Color Formats:</h4>
+                <pre>.element {
+  color: #ff0000;        /* Hex */
+  color: rgb(255, 0, 0); /* RGB */
+  color: hsl(0, 100%, 50%); /* HSL */
+}</pre>
+            </div>
+
+            <div class="real-world-example">
+                <h4>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    Real-World Example
+                </h4>
+                <p>CSS variables are widely used in modern web design for theming and consistent styling across large applications.</p>
+            </div>
+
+            <div class="interactive-demo">
+                <h5>
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                    Try it Yourself
+                </h5>
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="runDemo()">Run Demo</button>
+                    <button class="demo-btn" onclick="resetDemo()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runDemo() {
+            // Add demo functionality here
+            console.log('Running Colors & Units demo...');
+        }
+
+        function resetDemo() {
+            // Add reset functionality here
+            console.log('Resetting Colors & Units demo...');
+        }
+    </script>
+</body>
+</html> 

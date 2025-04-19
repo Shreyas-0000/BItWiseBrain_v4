@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "assets/**/*", "use": "@vercel/static" },
+    { "src": "questions/**/*", "use": "@vercel/static" },
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/questions/(.*)", "dest": "/questions/$1" },
+    { "src": "/api/(.*)", "dest": "/api/$1" }
+  ]
+} 

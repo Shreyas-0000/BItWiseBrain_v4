@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Content - BitWiseBrain</title>
+    <link rel="stylesheet" href="../css/shared-navbar.css">
+    <link rel="stylesheet" href="../css/courses.css">
+    <link rel="stylesheet" href="../css/course-details.css">
+    <link rel="stylesheet" href="../css/game.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to top, rgba(0,0,0,0.3)50%, rgba(0,0,0,0.3)50%), url("../img/quiz-BG.jpg");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            padding-left: calc(var(--navbar-collapsed-width) + 2rem);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #1ec8ff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #00a0ff;
+            transform: scale(1.05);
+        }
+
+        .topic-content {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .topic-content h2 {
+            color: #1ec8ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .topic-content h2 ion-icon {
+            font-size: 1.8rem;
+        }
+
+        .topic-description {
+            color: #fff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .learning-process {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .learning-process h3 {
+            color: #1ec8ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-example {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: monospace;
+            color: #fff;
+            border-left: 3px solid #1ec8ff;
+            overflow-x: auto;
+        }
+
+        .key-concepts {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .key-concepts li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .key-concepts li ion-icon {
+            color: #1ec8ff;
+            font-size: 1.2rem;
+        }
+
+        .real-world-example {
+            background: rgba(30, 200, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid rgba(30, 200, 255, 0.2);
+        }
+
+        .real-world-example h4 {
+            color: #1ec8ff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quiz-btn, .puzzles-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            justify-content: center;
+        }
+
+        a.quiz-btn, a.puzzles-btn {
+            text-decoration: none;
+        }
+        
+        .quiz-btn {
+            background: #1ec8ff;
+            color: #000;
+        }
+
+        .puzzles-btn {
+            background: #ff6b6b;
+            color: #000;
+        }
+
+        .quiz-btn:hover, .puzzles-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .quiz-btn:hover {
+            background: #00a0ff;
+        }
+
+        .puzzles-btn:hover {
+            background: #ff5252;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .content-container {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-container h3 {
+            color: #1ec8ff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-container h3 ion-icon {
+            font-size: 1.8rem;
+        }
+
+        .content-container p {
+            color: #fff;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section h4 {
+            color: #1ec8ff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-section h4 ion-icon {
+            font-size: 1.4rem;
+        }
+
+        .content-section p {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .code-snippet {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: monospace;
+            color: #fff;
+            border-left: 3px solid #1ec8ff;
+        }
+
+        .example-box {
+            background: rgba(30, 200, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid rgba(30, 200, 255, 0.2);
+        }
+
+        .example-box h5 {
+            color: #1ec8ff;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .note-box {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+        }
+
+        .note-box h5 {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-card h4 {
+            color: #1ec8ff;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            color: #fff;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Quiz Modal Styles */
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .quiz-modal .container {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-top: 80px;
+        }
+        
+        .quiz-modal .container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .quiz-modal .question-slide {
+            height: 100vh;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            position: relative;
+            scroll-snap-align: center;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .stats-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(30, 200, 255, 0.1);
+        }
+
+        .stats-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .stats-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(30, 200, 255, 0.1);
+        }
+
+        .stats-label {
+            color: #1ec8ff;
+            font-size: 1.1rem;
+        }
+
+        .stats-value {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .end-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            background: rgba(255, 59, 48, 0.1);
+            border: 1px solid rgba(255, 59, 48, 0.2);
+            border-radius: 8px;
+            color: #ff3b30;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .end-btn:hover {
+            background: rgba(255, 59, 48, 0.2);
+            transform: translateY(-2px);
+        }
+
+        #boxed {
+            padding: 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .choices-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .choice-container {
+            display: flex;
+            margin-bottom: 0.6rem;
+            border-radius: 15px;
+            background: linear-gradient(45deg, rgba(78, 84, 200, 0.8), rgba(143, 148, 251, 0.8));
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(78, 84, 200, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .choice-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 20px rgba(143, 148, 251, 0.3);
+        }
+
+        .choice-prefix {
+            padding: 0.8rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 15px 0 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .choice-text {
+            padding: 0.8rem 1rem;
+            width: 100%;
+            font-size: 0.95rem;
+            color: white;
+            line-height: 1.3;
+        }
+
+        .correct {
+            background: linear-gradient(45deg, rgba(40, 167, 69, 0.8), rgba(93, 214, 117, 0.8)) !important;
+            box-shadow: 0 0 25px rgba(40, 167, 69, 0.4) !important;
+            border: 1px solid rgba(40, 167, 69, 0.3) !important;
+        }
+
+        .incorrect {
+            background: linear-gradient(45deg, rgba(220, 53, 69, 0.8), rgba(255, 107, 107, 0.8)) !important;
+            box-shadow: 0 0 25px rgba(220, 53, 69, 0.4) !important;
+            border: 1px solid rgba(220, 53, 69, 0.3) !important;
+        }
+
+        .no-questions {
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 2rem;
+            background: rgba(255, 59, 48, 0.1);
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 500px;
+        }
+
+        /* Puzzles Modal Styles */
+        .puzzles-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .puzzles-container {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .puzzle-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .puzzle-question {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .puzzle-hint {
+            color: #1ec8ff;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .puzzle-solution {
+            color: #4CAF50;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .show-hint-btn, .show-solution-btn {
+            background: rgba(30, 200, 255, 0.2);
+            color: #1ec8ff;
+            border: 1px solid rgba(30, 200, 255, 0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .show-hint-btn:hover, .show-solution-btn:hover {
+            background: rgba(30, 200, 255, 0.3);
+        }
+
+        .interactive-demo {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 1px solid rgba(30, 200, 255, 0.2);
+        }
+
+        .interactive-demo h5 {
+            color: #1ec8ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .demo-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .demo-btn {
+            background: rgba(30, 200, 255, 0.2);
+            color: #1ec8ff;
+            border: 1px solid rgba(30, 200, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            background: rgba(30, 200, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .progress-tracker {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #1ec8ff;
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .resource-card a {
+            color: #1ec8ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Playground Styles - Simplified */
+        .playground-container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .playground-iframe-container {
+            display: flex;
+            height: 400px;
+            margin-top: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .playground-container h2 {
+            color: #1ec8ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .playground-container h2 ion-icon {
+            font-size: 1.8rem;
+        }
+
+        .playground-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Navbar -->
+    <div class="left-navbar">
+        <div class="navbar-header">
+            <ion-icon name="menu-outline" class="hamburger"></ion-icon>
+            <span class="navbar-brand">BitWiseBrain</span>
+        </div>
+        
+        <div class="nav-items">
+            <a href="../../index.html" class="nav-item">
+                <ion-icon name="home-outline"></ion-icon>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <a href="../../reels/reel_html.html" class="nav-item">
+                <ion-icon name="play-circle-outline"></ion-icon>
+                <span class="nav-text">Reels</span>
+            </a>
+            
+            <a href="../../courses.html" class="nav-item active">
+                <ion-icon name="book-outline"></ion-icon>
+                <span class="nav-text">Courses</span>
+            </a>
+            
+            <a href="quiz-setup.html" class="nav-item">
+                <ion-icon name="help-circle-outline"></ion-icon>
+                <span class="nav-text">Quizzes</span>
+            </a>
+            
+            <a href="../../playground/playground.html" class="nav-item">
+                <ion-icon name="code-slash-outline"></ion-icon>
+                <span class="nav-text">Playground</span>
+            </a>
+
+            <a href="../../leaderboard.html" class="nav-item">
+                <ion-icon name="trophy-outline"></ion-icon>
+                <span class="nav-text">Leaderboard</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="button-group">
+            <a href="course-details.html" class="back-btn">← Back to Topics</a>
+        </div>
+        <div id="topicContent" class="topic-content">
+            <!-- Topic content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Puzzles Modal -->
+    <div class="puzzles-modal" id="puzzlesModal">
+        <div class="puzzles-container" id="puzzlesContainer">
+            <!-- Puzzles will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="stats-container">
+            <div class="stats-content">
+                <div class="stats-item">
+                    <span class="stats-label">Questions:</span>
+                    <span class="stats-value" id="questions-answered">0</span>
+                </div>
+                <div class="stats-item">
+                    <span class="stats-label">Accuracy:</span>
+                    <span class="stats-value" id="accuracy">0%</span>
+                </div>
+                <div class="stats-item">
+                    <span class="stats-label">Score:</span>
+                    <span class="stats-value" id="score">0</span>
+                </div>
+                <button id="end-quiz" class="end-btn">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                    End Quiz
+                </button>
+            </div>
+        </div>
+
+        <main class="container">
+            <div id="game">
+                <div id="questions-container">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- End Quiz Popup -->
+        <div id="end-quiz-popup" class="popup">
+            <div class="popup-content">
+                <h2>Quiz Results</h2>
+                <div class="result-stats">
+                    <p>Questions Attempted: <span id="final-questions">0</span></p>
+                    <p>Final Accuracy: <span id="final-accuracy">0%</span></p>
+                    <p>Total Score: <span id="final-score">0</span></p>
+                </div>
+                <div class="popup-buttons">
+                    <button id="try-again" class="try-again-btn">Try Again</button>
+                    <button id="return-to-topics" class="return-btn">Return to Topics</button>
+                </div>
+            </div>
+        </div>
+
+        <template id="question-template">
+            <div class="question-slide">
+                <div id="boxed">
+                    <div class="question-meta">
+                        <span class="category"></span>
+                        <span class="difficulty"></span>
+                    </div>
+                    <h2 class="question-text"></h2>
+                    <div class="choices-container">
+                        <!-- Choices will be dynamically inserted -->
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <script>
+        // Get topic ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const topicId = urlParams.get('topic');
+
+        // Load topic content
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTopicContent(topicId);
+        });
+
+        // Function to load topic content
+        function loadTopicContent(topicId) {
+            // Get the stored course data
+            const storedData = JSON.parse(localStorage.getItem('currentCourseData'));
+            if (!storedData) {
+                console.error('No course data found');
+                return;
+            }
+
+            const topic = storedData.data.topics[topicId];
+            if (!topic) {
+                console.error('Topic not found:', topicId);
+                return;
+            }
+
+            const topicContent = document.getElementById('topicContent');
+            
+            // Load the topic content with the quiz and puzzles buttons
+            topicContent.innerHTML = `
+                <h2>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    ${topic}
+                </h2>
+                <div class="topic-description">
+                    ${getTopicDescription(topic)}
+                </div>
+                <div class="learning-process">
+                    <h3>
+                        <ion-icon name="book-outline"></ion-icon>
+                        Learning Process
+                    </h3>
+                    ${getLearningProcess(topic)}
+                </div>
+                <div class="button-group">
+                    <a href="../html/quiz-setup.html" class="quiz-btn">
+                        <ion-icon name="help-circle-outline"></ion-icon>
+                        Start Quiz
+                    </a>
+                    <a href="../../puzzles/main.html" class="puzzles-btn">
+                        <ion-icon name="puzzle-outline"></ion-icon>
+                        Puzzles
+                    </a>
+                </div>
+            `;
+            
+            // Create playground container
+            const playgroundContainer = document.createElement('div');
+            playgroundContainer.className = 'playground-container';
+            
+            // Create playground title
+            const playgroundTitle = document.createElement('h2');
+            playgroundTitle.innerHTML = '<ion-icon name="code-slash-outline"></ion-icon> Code Playground';
+            
+            // Create iframe container
+            const iframeContainer = document.createElement('div');
+            iframeContainer.className = 'playground-iframe-container';
+            
+            // Create playground iframe
+            const playgroundIframe = document.createElement('iframe');
+            playgroundIframe.className = 'playground-iframe';
+            playgroundIframe.src = '../../playground/playground.html?embedded=true&thin-resizer=true';
+            
+            // Append iframe to container
+            iframeContainer.appendChild(playgroundIframe);
+            
+            // Append elements to playground container
+            playgroundContainer.appendChild(playgroundTitle);
+            playgroundContainer.appendChild(iframeContainer);
+            topicContent.appendChild(playgroundContainer);
+        }
+
+        function getTopicDescription(topic) {
+            const descriptions = {
+                'Introduction to HTML': `
+                    <p>HTML stands for HyperText Markup Language. It's the standard language used to create and structure web pages.</p>
+                    <p>Just like a skeleton gives structure to a body, HTML gives structure to a webpage. Every website you visit is built using HTML.</p>
+                `,
+                'Basic HTML Tags': `
+                    <p>HTML uses tags to define different parts of the content. Tags usually come in pairs: an opening tag and a closing tag.</p>
+                    <p>These tags help structure your content and tell the browser how to display it.</p>
+                `,
+                'Links and Images': `
+                    <p>Links allow users to navigate between pages, while images make web pages visually appealing.</p>
+                    <p>Both are essential elements for creating engaging and interactive websites.</p>
+                `,
+                'Tables': `
+                    <p>Tables are used to display data in rows and columns, similar to a spreadsheet.</p>
+                    <p>They're perfect for organizing information in a structured, easy-to-read format.</p>
+                `,
+                'Forms and Input': `
+                    <p>Forms collect user input like names, emails, or feedback.</p>
+                    <p>They're essential for user interaction and data collection on websites.</p>
+                `,
+                'Semantic HTML': `
+                    <p>Semantic HTML uses tags that describe their meaning, making code more readable and improving SEO.</p>
+                    <p>These tags help both developers and search engines understand the structure of your content.</p>
+                `,
+                'Multimedia in HTML': `
+                    <p>HTML provides tags for embedding videos and audio content directly into web pages.</p>
+                    <p>This makes it easy to create rich, interactive media experiences.</p>
+                `,
+                'HTML Entities & Symbols': `
+                    <p>HTML entities are special codes used to display characters that have special meaning in HTML.</p>
+                    <p>They ensure proper display of symbols and special characters across all browsers.</p>
+                `,
+                'IFrames': `
+                    <p>IFrames allow you to embed another webpage within your current page.</p>
+                    <p>They're commonly used for embedding videos, maps, or other external content.</p>
+                `,
+                'Meta Tags & SEO Basics': `
+                    <p>Meta tags provide information about your webpage to search engines and browsers.</p>
+                    <p>They're crucial for SEO and how your site appears in search results.</p>
+                `,
+                'Advanced Form Features': `
+                    <p>Modern HTML forms include advanced features for better user experience and data validation.</p>
+                    <p>These features make forms more interactive and user-friendly.</p>
+                `,
+                'Accessibility in HTML': `
+                    <p>Accessibility features ensure your website can be used by everyone, including people with disabilities.</p>
+                    <p>They make your content more inclusive and improve overall user experience.</p>
+                `,
+                'HTML APIs (Advanced Integration)': `
+                    <p>HTML APIs add powerful functionality to your web pages.</p>
+                    <p>They enable features like geolocation, drag-and-drop, and local storage.</p>
+                `,
+                'HTML5 Advanced Features': `
+                    <p>HTML5 introduced new elements and features for modern web development.</p>
+                    <p>These features enable more interactive and dynamic web experiences.</p>
+                `
+            };
+
+            return descriptions[topic] || '<p>No description available for this topic.</p>';
+        }
+
+        function getLearningProcess(topic) {
+            const learningProcesses = {
+                'Introduction to HTML': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            HTML is not a programming language. It doesn't include logic or conditions.
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            Tags like &lt;h1&gt;, &lt;p&gt;, &lt;img&gt;, and &lt;a&gt; define different parts of a webpage.
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is a simple HTML document.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                    <div class="real-world-example">
+                        <h4>
+                            <ion-icon name="globe-outline"></ion-icon>
+                            Real-World Example
+                        </h4>
+                        <p>Every time you open Google, Facebook, or YouTube – their pages are structured with HTML behind the scenes.</p>
+                    </div>
+                `,
+                'Basic HTML Tags': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;h1&gt; to &lt;h6&gt;: Headings (like titles)
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;p&gt;: Paragraph
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;br&gt;: Line break
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;strong&gt;: Bold text
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;em&gt;: Italic text
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;h1&gt;This is a Heading&lt;/h1&gt;
+&lt;p&gt;This is a &lt;strong&gt;bold&lt;/strong&gt; word and &lt;em&gt;italic&lt;/em&gt; word.&lt;/p&gt;</pre>
+                    </div>
+                `,
+                'Links and Images': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            Links use the &lt;a&gt; tag with href attribute
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            Images use the &lt;img&gt; tag with src and alt attributes
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;a href="https://www.wikipedia.org"&gt;Visit Wikipedia&lt;/a&gt;
+&lt;img src="https://via.placeholder.com/150" alt="Sample Image"&gt;</pre>
+                    </div>
+                `,
+                'Tables': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;table&gt;: Creates a table
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;tr&gt;: Table row
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;td&gt;: Table cell
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;th&gt;: Table header cell
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Student&lt;/th&gt;
+    &lt;th&gt;Score&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ravi&lt;/td&gt;
+    &lt;td&gt;90&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+                    </div>
+                `,
+                'Forms and Input': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;form&gt;: Container for form elements
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;input&gt;: Various input types
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;textarea&gt;: Multi-line text input
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;select&gt;: Dropdown menu
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;form&gt;
+  Name: &lt;input type="text" name="username"&gt;&lt;br&gt;
+  Message:&lt;br&gt;
+  &lt;textarea rows="4" cols="30"&gt;&lt;/textarea&gt;&lt;br&gt;
+  &lt;input type="submit" value="Send"&gt;
+&lt;/form&gt;</pre>
+                    </div>
+                `,
+                'Semantic HTML': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;header&gt;: Page header
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;nav&gt;: Navigation links
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;section&gt;: Content section
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;article&gt;: Self-contained content
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;footer&gt;: Page footer
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;article&gt;
+  &lt;h2&gt;How to Learn HTML&lt;/h2&gt;
+  &lt;p&gt;Start with the basics and practice!&lt;/p&gt;
+&lt;/article&gt;</pre>
+                    </div>
+                `,
+                'Multimedia in HTML': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;video&gt;: Embed video content
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;audio&gt;: Embed audio content
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;video width="320" height="240" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</pre>
+                    </div>
+                `,
+                'HTML Entities & Symbols': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &amp;lt; = &lt;
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &amp;gt; = &gt;
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &amp;amp; = &amp;
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;p&gt;5 &amp;lt; 10 and 10 &amp;gt; 5&lt;/p&gt;</pre>
+                    </div>
+                `,
+                'IFrames': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            src: URL of the page to embed
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            width/height: Dimensions of the iframe
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;iframe src="https://www.example.com" width="400" height="300"&gt;&lt;/iframe&gt;</pre>
+                    </div>
+                `,
+                'Meta Tags & SEO Basics': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            charset: Character encoding
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            description: Page description
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            keywords: Search keywords
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="description" content="HTML Tutorial for Students"&gt;</pre>
+                    </div>
+                `,
+                'Advanced Form Features': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            required: Makes field mandatory
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            placeholder: Hint text
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            pattern: Input validation
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;form&gt;
+  Email: &lt;input type="email" placeholder="Enter email" required&gt;&lt;br&gt;
+  Age: &lt;input type="number" min="1"&gt;&lt;br&gt;
+&lt;/form&gt;</pre>
+                    </div>
+                `,
+                'Accessibility in HTML': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            alt text for images
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            proper form labels
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            semantic HTML tags
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;img src="logo.png" alt="Website Logo"&gt;
+&lt;label for="name"&gt;Name:&lt;/label&gt;
+&lt;input id="name" type="text"&gt;</pre>
+                    </div>
+                `,
+                'HTML APIs (Advanced Integration)': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            Geolocation API
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            Drag and Drop
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            Web Storage
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;button onclick="getLocation()"&gt;Where am I?&lt;/button&gt;
+&lt;p id="location"&gt;&lt;/p&gt;
+&lt;script&gt;
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    document.getElementById("location").innerText = 
+      \`Latitude: \${position.coords.latitude}, Longitude: \${position.coords.longitude}\`;
+  });
+}
+&lt;/script&gt;</pre>
+                    </div>
+                `,
+                'HTML5 Advanced Features': `
+                    <div class="key-concepts">
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;canvas&gt;: Drawing shapes
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            &lt;details&gt;: Hide/show content
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            localStorage: Browser storage
+                        </li>
+                    </div>
+                    <div class="code-example">
+                        <pre>&lt;details&gt;
+  &lt;summary&gt;Click here for details&lt;/summary&gt;
+  &lt;p&gt;This is hidden content.&lt;/p&gt;
+&lt;/details&gt;</pre>
+                    </div>
+                `
+            };
+
+            return learningProcesses[topic] || '<p>No learning process available for this topic.</p>';
+        }
+
+        // Function to start quiz
+        async function startQuiz(topicId) {
+            console.log('Starting quiz for topic:', topicId);
+            // Get the quiz modal
+            const quizModal = document.getElementById('quizModal');
+            if (quizModal) {
+                quizModal.style.display = 'block';
+                // Initialize the quiz with questions from JSON
+                await initializeQuiz(topicId);
+            } else {
+                console.error('Quiz modal not found');
+            }
+        }
+
+        // Function to initialize quiz
+        async function initializeQuiz(topicId) {
+            console.log('Initializing quiz for topic:', topicId);
+            
+            // Get the stored course data
+            const storedData = JSON.parse(localStorage.getItem('currentCourseData'));
+            if (!storedData) {
+                console.error('No course data found in localStorage');
+                return;
+            }
+
+            console.log('Stored course data:', storedData);
+
+            // Get the course name and topic name
+            const course = storedData.course.toLowerCase();
+            const topicName = storedData.data.topics[topicId];
+
+            // Load questions based on course
+            let questions = [];
+            try {
+                const response = await fetch(`../questions/${course}_mcq.json`);
+                const data = await response.json();
+
+                if (course === 'html' && data.html_mcq_questions) {
+                    questions = data.html_mcq_questions
+                        .filter(q => q.category.toLowerCase() === topicName.toLowerCase())
+                        .map(q => ({
+                            question: q.question,
+                            choices: [q.options.a, q.options.b, q.options.c, q.options.d],
+                            correctAnswer: ['a', 'b', 'c', 'd'].indexOf(q.correct_answer),
+                            category: q.category,
+                            explanation: q.explanation
+                        }));
+                } else if (course === 'javascript' && data.javascript_mcq_questions) {
+                    questions = data.javascript_mcq_questions
+                        .filter(q => q.category.toLowerCase() === topicName.toLowerCase())
+                        .map(q => ({
+                            question: q.question,
+                            choices: [q.options.a, q.options.b, q.options.c, q.options.d],
+                            correctAnswer: ['a', 'b', 'c', 'd'].indexOf(q.correct_answer),
+                            category: q.category,
+                            explanation: q.explanation
+                        }));
+                } else if (course === 'python' && data.python_mcq_questions) {
+                    questions = data.python_mcq_questions
+                        .filter(q => q.category.toLowerCase() === topicName.toLowerCase())
+                        .map(q => ({
+                            question: q.question,
+                            choices: [q.options.a, q.options.b, q.options.c, q.options.d],
+                            correctAnswer: ['a', 'b', 'c', 'd'].indexOf(q.correct_answer),
+                            category: q.category,
+                            explanation: q.explanation
+                        }));
+                }
+
+                console.log('Questions for topic:', topicName, questions);
+
+                if (questions.length === 0) {
+                    console.error('No questions found for topic:', topicName);
+                    document.getElementById('questions-container').innerHTML = `
+                        <div class="no-questions">
+                            <p>No questions available for this topic.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Get the questions container
+                const questionsContainer = document.getElementById('questions-container');
+                questionsContainer.innerHTML = ''; // Clear existing questions
+
+                // Create a question slide for each question
+                questions.forEach((question, index) => {
+                    const questionSlide = document.createElement('div');
+                    questionSlide.className = 'question-slide';
+                    questionSlide.innerHTML = `
+                        <div id="boxed">
+                            <div class="question-meta">
+                                <span class="category">${question.category || 'General'}</span>
+                            </div>
+                            <h2 class="question-text">${question.question}</h2>
+                            <div class="choices-container">
+                                ${question.choices.map((choice, choiceIndex) => `
+                                    <div class="choice-container" onclick="handleAnswer(${choiceIndex}, ${question.correctAnswer}, this)">
+                                        <div class="choice-prefix">${String.fromCharCode(65 + choiceIndex)}</div>
+                                        <div class="choice-text">${choice}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p>${question.explanation}</p>
+                            </div>
+                        </div>
+                    `;
+                    questionsContainer.appendChild(questionSlide);
+                });
+
+                // Initialize quiz stats
+                updateStats(0, 0, 0);
+
+                // Show the first question
+                const firstQuestion = questionsContainer.firstElementChild;
+                if (firstQuestion) {
+                    firstQuestion.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (error) {
+                console.error('Error loading questions:', error);
+                document.getElementById('questions-container').innerHTML = `
+                    <div class="no-questions">
+                        <p>Error loading questions. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Function to handle answer selection
+        function handleAnswer(selectedIndex, correctIndex, choiceElement) {
+            const questionSlide = choiceElement.closest('.question-slide');
+            const choices = questionSlide.querySelectorAll('.choice-container');
+            const explanation = questionSlide.querySelector('.explanation');
+            
+            // Disable all choices
+            choices.forEach(choice => {
+                choice.style.pointerEvents = 'none';
+            });
+            
+            // Mark correct and incorrect answers
+            choices.forEach((choice, index) => {
+                if (index === correctIndex) {
+                    choice.classList.add('correct');
+                } else if (index === selectedIndex && index !== correctIndex) {
+                    choice.classList.add('incorrect');
+                }
+            });
+            
+            // Show explanation
+            if (explanation) {
+                explanation.style.display = 'block';
+            }
+            
+            // Update stats
+            const isCorrect = selectedIndex === correctIndex;
+            const currentQuestions = parseInt(document.getElementById('questions-answered').textContent);
+            const currentScore = parseInt(document.getElementById('score').textContent);
+            const currentCorrect = isCorrect ? 1 : 0;
+            
+            const newQuestions = currentQuestions + 1;
+            const newScore = currentScore + (isCorrect ? 10 : 0);
+            const accuracy = Math.round((currentCorrect / newQuestions) * 100);
+            
+            updateStats(newQuestions, accuracy, newScore);
+            
+            // Move to next question after delay
+            setTimeout(() => {
+                const nextSlide = questionSlide.nextElementSibling;
+                if (nextSlide) {
+                    nextSlide.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // Show end quiz popup
+                    document.getElementById('end-quiz-popup').style.display = 'block';
+                    document.getElementById('final-questions').textContent = newQuestions;
+                    document.getElementById('final-accuracy').textContent = accuracy + '%';
+                    document.getElementById('final-score').textContent = newScore;
+                }
+            }, 1500);
+        }
+
+        // Function to update quiz stats
+        function updateStats(questions, accuracy, score) {
+            document.getElementById('questions-answered').textContent = questions;
+            document.getElementById('accuracy').textContent = accuracy + '%';
+            document.getElementById('score').textContent = score;
+        }
+
+        // Add event listener for try again button
+        document.getElementById('try-again').addEventListener('click', function() {
+            document.getElementById('end-quiz-popup').style.display = 'none';
+            initializeQuiz(topicId);
+        });
+
+        // Navbar functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.left-navbar');
+        
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('expanded');
+        });
+
+        // Add event listener for end quiz button
+        document.getElementById('end-quiz').addEventListener('click', function() {
+            const quizModal = document.getElementById('quizModal');
+            quizModal.style.display = 'none';
+        });
+
+        // Add event listener for return to topics button
+        document.getElementById('return-to-topics').addEventListener('click', function() {
+            const quizModal = document.getElementById('quizModal');
+            quizModal.style.display = 'none';
+        });
+
+        // Function to start puzzles
+        async function startPuzzles(topicId) {
+            console.log('Starting puzzles for topic:', topicId);
+            // Get the puzzles modal
+            const puzzlesModal = document.getElementById('puzzlesModal');
+            if (puzzlesModal) {
+                puzzlesModal.style.display = 'block';
+                // Initialize the puzzles
+                await initializePuzzles(topicId);
+            } else {
+                console.error('Puzzles modal not found');
+            }
+        }
+
+        // Function to initialize puzzles
+        async function initializePuzzles(topicId) {
+            console.log('Initializing puzzles for topic:', topicId);
+            
+            // Get the stored course data
+            const storedData = JSON.parse(localStorage.getItem('currentCourseData'));
+            if (!storedData) {
+                console.error('No course data found in localStorage');
+                return;
+            }
+
+            console.log('Stored course data:', storedData);
+
+            // Get the course name and topic name
+            const course = storedData.course.toLowerCase();
+            const topicName = storedData.data.topics[topicId];
+
+            // Load puzzles based on course
+            let puzzles = [];
+            try {
+                const response = await fetch(`../puzzles/${course}_puzzles.json`);
+                const data = await response.json();
+
+                if (course === 'html' && data.html_puzzles) {
+                    puzzles = data.html_puzzles
+                        .filter(p => p.category.toLowerCase() === topicName.toLowerCase())
+                        .map(p => ({
+                            question: p.question,
+                            hint: p.hint,
+                            solution: p.solution,
+                            category: p.category
+                        }));
+                }
+
+                console.log('Puzzles for topic:', topicName, puzzles);
+
+                if (puzzles.length === 0) {
+                    console.error('No puzzles found for topic:', topicName);
+                    document.getElementById('puzzlesContainer').innerHTML = `
+                        <div class="no-puzzles">
+                            <p>No puzzles available for this topic.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Get the puzzles container
+                const puzzlesContainer = document.getElementById('puzzlesContainer');
+                puzzlesContainer.innerHTML = ''; // Clear existing puzzles
+
+                // Create a puzzle item for each puzzle
+                puzzles.forEach((puzzle, index) => {
+                    const puzzleItem = document.createElement('div');
+                    puzzleItem.className = 'puzzle-item';
+                    puzzleItem.innerHTML = `
+                        <div class="puzzle-question">${index + 1}. ${puzzle.question}</div>
+                        <div class="puzzle-hint">Hint: ${puzzle.hint}</div>
+                        <div class="puzzle-solution">Solution: ${puzzle.solution}</div>
+                        <div class="puzzle-buttons">
+                            <button class="show-hint-btn" onclick="toggleHint(this)">Show Hint</button>
+                            <button class="show-solution-btn" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                    `;
+                    puzzlesContainer.appendChild(puzzleItem);
+                });
+            } catch (error) {
+                console.error('Error loading puzzles:', error);
+                document.getElementById('puzzlesContainer').innerHTML = `
+                    <div class="no-puzzles">
+                        <p>Error loading puzzles. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Function to toggle hint visibility
+        function toggleHint(button) {
+            const hint = button.parentElement.previousElementSibling.previousElementSibling;
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+            button.textContent = hint.style.display === 'none' ? 'Show Hint' : 'Hide Hint';
+        }
+
+        // Function to toggle solution visibility
+        function toggleSolution(button) {
+            const solution = button.parentElement.previousElementSibling;
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+            button.textContent = solution.style.display === 'none' ? 'Show Solution' : 'Hide Solution';
+        }
+
+        // Add event listener for closing puzzles modal
+        document.addEventListener('click', function(event) {
+            const puzzlesModal = document.getElementById('puzzlesModal');
+            if (event.target === puzzlesModal) {
+                puzzlesModal.style.display = 'none';
+            }
+        });
+
+        // Add demo functions
+        function runDemo() {
+            console.log('Running demo...');
+            // Add demo functionality here
+        }
+
+        function resetDemo() {
+            console.log('Resetting demo...');
+            // Add reset functionality here
+        }
+
+        // Add this function to handle going back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html> 

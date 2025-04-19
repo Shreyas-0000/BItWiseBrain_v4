@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #1ec8ff;
+    --dark-color: #1a1a1a;
+    --light-color: #f0f0f0;
+    --navbar-width: 240px;
+    --navbar-collapsed-width: 60px;
+}
+
+/* Left Navbar */
+.left-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--navbar-collapsed-width);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: width 0.3s ease;
+    z-index: 1000;
+    overflow-x: hidden;
+}
+
+.left-navbar:hover {
+    width: var(--navbar-width);
+}
+
+/* Navbar Header */
+.navbar-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hamburger {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.left-navbar:hover .navbar-brand {
+    opacity: 1;
+}
+
+/* Nav Items */
+.nav-items {
+    padding: 20px 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    background: rgba(30, 200, 255, 0.2);
+    border-right: 3px solid #1ec8ff;
+}
+
+.nav-item ion-icon {
+    font-size: 20px;
+    min-width: 20px;
+}
+
+.nav-text {
+    margin-left: 15px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.left-navbar:hover .nav-text {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .left-navbar {
+        width: var(--navbar-collapsed-width);
+    }
+    
+    .left-navbar:hover {
+        width: var(--navbar-width);
+    }
+}

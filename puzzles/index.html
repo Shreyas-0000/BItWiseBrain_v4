@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Puzzle Learning System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python Puzzle Learning System</h1>
+            <div class="header-right">
+                <div class="score-container">
+                    <i class="fas fa-star"></i>
+                    <span>Score: </span>
+                    <span id="score">0</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <span id="progress-text">Level 1/8</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="level-info">
+                <div class="level-header">
+                    <h2 id="level-title">Level 1: Basic Variables</h2>
+                    <div class="level-badges">
+                        <span class="badge" id="puzzle-progress">Puzzle 1/2</span>
+                        <span class="badge" id="level-status">In Progress</span>
+                    </div>
+                </div>
+                <p id="level-description">Learn about variables and basic data types</p>
+            </div>
+
+            <div class="puzzle-container">
+                <div class="puzzle-header">
+                    <h3 id="puzzle-question">Create a variable named 'age' and assign it the value 25</h3>
+                    <p id="puzzle-hint">Use the assignment operator =</p>
+                    <div class="hint-container">
+                        <button id="show-hint" class="btn hint-btn">
+                            <i class="fas fa-lightbulb"></i> Show Hint
+                        </button>
+                        <div id="hint-content" class="hint-content hidden">
+                            <p>Think about how to store a number in Python...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-editor">
+                    <div class="editor-header">
+                        <span>Your Code:</span>
+                        <div class="editor-controls">
+                            <button id="format-code" class="btn small-btn">
+                                <i class="fas fa-code"></i> Format
+                            </button>
+                            <button id="clear-code" class="btn small-btn">
+                                <i class="fas fa-trash"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="code-input" placeholder="Enter your Python code here..."></textarea>
+                </div>
+
+                <div class="button-container">
+                    <button id="run-code" class="btn primary">
+                        <i class="fas fa-play"></i> Run Code
+                    </button>
+                    <button id="show-solution" class="btn secondary">
+                        <i class="fas fa-eye"></i> Show Solution
+                    </button>
+                </div>
+
+                <div class="output-container">
+                    <div class="output-header">
+                        <span>Output:</span>
+                        <div class="output-controls">
+                            <button id="clear-output" class="btn small-btn">
+                                <i class="fas fa-trash"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                    <div id="output" class="output-content"></div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button id="prev-level" class="btn secondary" disabled>
+                    <i class="fas fa-arrow-left"></i> Previous Level
+                </button>
+                <button id="next-level" class="btn primary">
+                    Next Level <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </main>
+
+        <div id="solution-modal" class="modal">
+            <div class="modal-content">
+                <h3>Solution</h3>
+                <pre id="solution-code"></pre>
+                <div class="modal-buttons">
+                    <button class="btn primary" onclick="closeModal()">Close</button>
+                    <button class="btn secondary" id="copy-solution">
+                        <i class="fas fa-copy"></i> Copy Solution
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tutorial-modal" class="modal">
+            <div class="modal-content tutorial-content">
+                <h3>Welcome to Python Puzzle Learning!</h3>
+                <div class="tutorial-steps">
+                    <div class="step">
+                        <i class="fas fa-code"></i>
+                        <p>Write your Python code in the editor</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-play"></i>
+                        <p>Click "Run Code" to check your solution</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Use hints if you get stuck</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-star"></i>
+                        <p>Earn points by completing puzzles</p>
+                    </div>
+                </div>
+                <button class="btn primary" onclick="closeTutorial()">Get Started!</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitWiseBrain - About</title>
+    <link rel="stylesheet" href="../styles-landing.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assets/img/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: white;
+        }
+
+        .about-section {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about-section h2 {
+            color: #1ec8ff;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .about-section p {
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: #1ec8ff;
+            box-shadow: 0 5px 15px rgba(30, 200, 255, 0.2);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #1ec8ff;
+        }
+
+        .team-member h3 {
+            color: #1ec8ff;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .team-member p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .role {
+            color: #1ec8ff;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Navigation -->
+    <div class="left-navbar">
+        <div class="navbar-header">
+            <ion-icon name="menu-outline" class="hamburger"></ion-icon>
+            <span class="navbar-brand">BitWiseBrain</span>
+        </div>
+        
+        <div class="nav-items">
+            <a href="../index.html" class="nav-item">
+                <ion-icon name="home-outline"></ion-icon>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <a href="../courses.html" class="nav-item">
+                <ion-icon name="book-outline"></ion-icon>
+                <span class="nav-text">Courses</span>
+            </a>
+            
+            <a href="../assets/html/quiz-setup.html" class="nav-item">
+                <ion-icon name="help-circle-outline"></ion-icon>
+                <span class="nav-text">Quizzes</span>
+            </a>
+            
+            <a href="../playground/playground.html" class="nav-item">
+                <ion-icon name="code-slash-outline"></ion-icon>
+                <span class="nav-text">Playground</span>
+            </a>
+
+            <a href="../leaderboard.html" class="nav-item">
+                <ion-icon name="trophy-outline"></ion-icon>
+                <span class="nav-text">Leaderboard</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <div class="about-section">
+            <h2>About BitWiseBrain</h2>
+            <p>BitWiseBrain is an innovative learning platform designed to make programming education accessible, engaging, and effective. Our mission is to help aspiring developers master programming concepts through interactive learning experiences.</p>
+            
+            <p>Founded in 2024, BitWiseBrain combines modern learning methodologies with cutting-edge technology to create an immersive learning environment. Our platform features interactive quizzes, a real-time code playground, and structured courses to support learners at every step of their journey.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Shubham Kamble</h3>
+                    <div class="role">Lead Developer</div>
+                    <p>Specializes in frontend development and user experience design. Created the interactive quiz system and code playground.</p>
+                </div>
+
+                <div class="team-member">
+                    <h3>Shreyas Kadam</h3>
+                    <div class="role">Backend Developer</div>
+                    <p>Expert in API development and database management. Implemented the quiz generation and scoring systems.</p>
+                </div>
+
+                <div class="team-member">
+                    <h3>Vivek Kamble</h3>
+                    <div class="role">Content Developer</div>
+                    <p>Creates and curates educational content. Designed the course structure and learning paths.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>Our Vision</h2>
+            <p>We believe that learning to code should be accessible to everyone. Our platform is designed to break down complex programming concepts into digestible pieces, making it easier for beginners to start their coding journey while providing challenging content for more advanced learners.</p>
+        </div>
+    </div>
+</body>
+</html> 

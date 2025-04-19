@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitWiseBrain - Features</title>
+    <link rel="stylesheet" href="../styles-landing.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assets/img/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: white;
+        }
+
+        .feature-section {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-section h2 {
+            color: #1ec8ff;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .feature-section h3 {
+            color: #1ec8ff;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .feature-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .feature-list ion-icon {
+            color: #1ec8ff;
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #1ec8ff;
+            box-shadow: 0 5px 15px rgba(30, 200, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Navigation -->
+    <div class="left-navbar">
+        <div class="navbar-header">
+            <ion-icon name="menu-outline" class="hamburger"></ion-icon>
+            <span class="navbar-brand">BitWiseBrain</span>
+        </div>
+        
+        <div class="nav-items">
+            <a href="../index.html" class="nav-item">
+                <ion-icon name="home-outline"></ion-icon>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <a href="../courses.html" class="nav-item">
+                <ion-icon name="book-outline"></ion-icon>
+                <span class="nav-text">Courses</span>
+            </a>
+            
+            <a href="../assets/html/quiz-setup.html" class="nav-item">
+                <ion-icon name="help-circle-outline"></ion-icon>
+                <span class="nav-text">Quizzes</span>
+            </a>
+            
+            <a href="../playground/playground.html" class="nav-item">
+                <ion-icon name="code-slash-outline"></ion-icon>
+                <span class="nav-text">Playground</span>
+            </a>
+
+            <a href="../leaderboard.html" class="nav-item">
+                <ion-icon name="trophy-outline"></ion-icon>
+                <span class="nav-text">Leaderboard</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="features-container">
+        <div class="feature-section">
+            <h2>Platform Features</h2>
+            <p>BitWiseBrain is a comprehensive learning platform designed to help you master programming through interactive learning experiences.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Interactive Quizzes</h3>
+                    <ul class="feature-list">
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Multiple difficulty levels</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Adaptive question selection</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Real-time scoring</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Progress tracking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-item">
+                    <h3>Code Playground</h3>
+                    <ul class="feature-list">
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Live code editing</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Real-time preview</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Multi-language support</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Syntax highlighting</li>
+                    </ul>
+                </div>
+
+                <div class="feature-item">
+                    <h3>Structured Courses</h3>
+                    <ul class="feature-list">
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>HTML fundamentals</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>CSS styling</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>JavaScript programming</li>
+                        <li><ion-icon name="checkmark-circle-outline"></ion-icon>Python basics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-section">
+            <h2>Learning Experience</h2>
+            <ul class="feature-list">
+                <li>
+                    <ion-icon name="school-outline"></ion-icon>
+                    <div>
+                        <h3>Comprehensive Learning Path</h3>
+                        <p>Follow a structured learning path from basics to advanced concepts in programming.</p>
+                    </div>
+                </li>
+                <li>
+                    <ion-icon name="trophy-outline"></ion-icon>
+                    <div>
+                        <h3>Achievement System</h3>
+                        <p>Track your progress and compete with others on the leaderboard.</p>
+                    </div>
+                </li>
+                <li>
+                    <ion-icon name="infinite-outline"></ion-icon>
+                    <div>
+                        <h3>Infinite Quiz Mode</h3>
+                        <p>Practice endlessly with our infinite quiz mode to master concepts.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

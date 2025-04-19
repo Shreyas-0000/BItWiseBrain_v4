@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to CSS - BitWiseBrain</title>
+    <link rel="stylesheet" href="../../css/css-topics.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="css-topic-container">
+        <h2 class="css-topic-header">
+            <ion-icon name="code-slash-outline"></ion-icon>
+            Introduction to CSS & Types
+        </h2>
+        
+        <div class="css-topic-description">
+            <p>CSS (Cascading Style Sheets) is used to style and layout HTML elements. It separates design from structure, making web development cleaner and more efficient.</p>
+        </div>
+
+        <div class="learning-process">
+            <h3>
+                <ion-icon name="book-outline"></ion-icon>
+                Learning Process
+            </h3>
+            
+            <div class="key-concepts">
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Inline CSS: Styles applied directly to HTML elements
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Internal CSS: Styles defined within the HTML document
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    External CSS: Styles stored in separate files
+                </li>
+            </div>
+
+            <div class="code-example">
+                <h4>Inline CSS:</h4>
+                <pre>&lt;h1 style="color: red;"&gt;This is inline CSS&lt;/h1&gt;</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Internal CSS:</h4>
+                <pre>&lt;head&gt;
+  &lt;style&gt;
+    h1 { 
+      color: blue; 
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>External CSS:</h4>
+                <pre>/* style.css */
+h1 { 
+  color: green; 
+}
+
+/* HTML file */
+&lt;link rel="stylesheet" href="style.css"&gt;</pre>
+            </div>
+
+            <div class="real-world-example">
+                <h4>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    Real-World Example
+                </h4>
+                <p>Modern web development primarily uses external CSS files to maintain clean separation between structure (HTML) and presentation (CSS), making websites easier to maintain and update.</p>
+            </div>
+
+            <div class="interactive-demo">
+                <h5>
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                    Try it Yourself
+                </h5>
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="runDemo()">Run Demo</button>
+                    <button class="demo-btn" onclick="resetDemo()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runDemo() {
+            // Add demo functionality here
+            console.log('Running CSS Introduction demo...');
+        }
+
+        function resetDemo() {
+            // Add reset functionality here
+            console.log('Resetting CSS Introduction demo...');
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,146 @@
+/* CSS Topics Container Styles */
+.css-topic-container {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.css-topic-header {
+    color: #1ec8ff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.css-topic-header ion-icon {
+    font-size: 2.2rem;
+}
+
+.css-topic-description {
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.learning-process {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.learning-process h3 {
+    color: #1ec8ff;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.code-example {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-family: monospace;
+    color: #fff;
+    border-left: 3px solid #1ec8ff;
+    overflow-x: auto;
+}
+
+.key-concepts {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.key-concepts li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.key-concepts li ion-icon {
+    color: #1ec8ff;
+    font-size: 1.2rem;
+}
+
+.real-world-example {
+    background: rgba(30, 200, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid rgba(30, 200, 255, 0.2);
+}
+
+.real-world-example h4 {
+    color: #1ec8ff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Interactive Elements */
+.interactive-demo {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    border: 1px solid rgba(30, 200, 255, 0.2);
+}
+
+.interactive-demo h5 {
+    color: #1ec8ff;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.demo-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.demo-btn {
+    background: rgba(30, 200, 255, 0.2);
+    color: #1ec8ff;
+    border: 1px solid rgba(30, 200, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.demo-btn:hover {
+    background: rgba(30, 200, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .css-topic-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .css-topic-header {
+        font-size: 1.5rem;
+    }
+
+    .code-example {
+        font-size: 0.9rem;
+    }
+} 

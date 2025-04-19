@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitWiseBrain - Learn Programming</title>
+    <link rel="stylesheet" href="styles-landing.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>  
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .content h1 {
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .content p {
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .action-btn {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-card h3 {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card p {
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.8);
+            border-color: #1ec8ff;
+            box-shadow: 0 5px 15px rgba(30, 200, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Navigation -->
+    <div class="left-navbar">
+        <div class="navbar-header">
+            <ion-icon name="menu-outline" class="hamburger"></ion-icon>
+            <span class="navbar-brand">BitWiseBrain</span>
+        </div>
+        
+        <div class="nav-items">
+            <a href="./index.html" class="nav-item active">
+                <ion-icon name="home-outline"></ion-icon>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <a href="./courses.html" class="nav-item">
+                <ion-icon name="book-outline"></ion-icon>
+                <span class="nav-text">Courses</span>
+            </a>
+            
+            <a href="assets/html/quiz-setup.html" class="nav-item">
+                <ion-icon name="help-circle-outline"></ion-icon>
+                <span class="nav-text">Quizzes</span>
+            </a>
+            
+            <a href="./playground/playground.html" class="nav-item">
+                <ion-icon name="code-slash-outline"></ion-icon>
+                <span class="nav-text">Playground</span>
+            </a>
+
+            <a href="./leaderboard.html" class="nav-item">
+                <ion-icon name="trophy-outline"></ion-icon>
+                <span class="nav-text">Leaderboard</span>
+            </a>
+
+            <a href="./puzzles/main.html" class="nav-item">
+                <ion-icon name="extension-puzzle-outline"></ion-icon>
+                <span class="nav-text">Puzzles</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">BitWiseBrain</h2>
+            </div>
+            
+            <div class="menu">
+                <ul>
+                    <li><a href="index_extra/features.html">Features</a></li>
+                    <li><a href="index_extra/about.html">About</a></li>
+                    <li><a href="index_extra/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div> 
+
+        <div class="content">
+            <h1>Learn Programming<br>Quick & Easy</h1>
+            <p class="par">Master programming concepts through interactive quizzes.<br>
+                Interactive quizzes and challenges make learning fun and effective.<br>
+                Join thousands of learners in this modern learning experience.</p>
+
+            <div class="action-buttons">
+                <a href="assets/html/quiz-setup.html" class="action-btn primary">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                    Start Learning
+                </a>
+                <a href="playground/playground.html" class="action-btn secondary">
+                    <ion-icon name="code-slash-outline"></ion-icon>
+                    Try Playground
+                </a>
+            </div>
+
+            <div class="feature-cards">
+                <a href="courses.html" class="feature-card">
+                    <div class="feature-icon">
+                        <ion-icon name="book-outline"></ion-icon>
+                    </div>
+                    <h3>Learn</h3>
+                    <p>Explore our comprehensive courses and master programming concepts</p>
+                </a>
+
+                <a href="playground/playground.html" class="feature-card">
+                    <div class="feature-icon">
+                        <ion-icon name="code-slash-outline"></ion-icon>
+                    </div>
+                    <h3>Practice</h3>
+                    <p>Code in real-time with our interactive playground</p>
+                </a>
+
+                <a href="leaderboard.html" class="feature-card">
+                    <div class="feature-icon">
+                        <ion-icon name="trophy-outline"></ion-icon>
+                    </div>
+                    <h3>Achieve</h3>
+                    <p>Track your progress and compete on the leaderboard</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model - BitWiseBrain</title>
+    <link rel="stylesheet" href="../../css/css-topics.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="css-topic-container">
+        <h2 class="css-topic-header">
+            <ion-icon name="cube-outline"></ion-icon>
+            Box Model
+        </h2>
+        
+        <div class="css-topic-description">
+            <p>The CSS Box Model is a fundamental concept that describes how every HTML element is structured as a rectangular box. This model consists of four main components: content, padding, border, and margin, which work together to create the layout and spacing of elements on a webpage.</p>
+        </div>
+
+        <div class="learning-process">
+            <h3>
+                <ion-icon name="book-outline"></ion-icon>
+                Learning Process
+            </h3>
+            
+            <div class="key-concepts">
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Content: The actual content of the element (text, images, etc.)
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Padding: Space between the content and the border
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Border: A line that surrounds the padding and content
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Margin: Space outside the border, separating elements
+                </li>
+            </div>
+
+            <div class="code-example">
+                <h4>Basic Box Model Implementation:</h4>
+                <pre>.box {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 2px solid #3498db;
+  margin: 30px;
+  background-color: #f8f9fa;
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Box Model with Different Sides:</h4>
+                <pre>.element {
+  /* Individual sides */
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  
+  /* Shorthand */
+  padding: 10px 20px 30px 40px;
+  border: 1px solid #ddd;
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Box Sizing Property:</h4>
+                <pre>/* Include padding and border in element's width */
+.box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 2px solid #000;
+  /* Total width remains 300px */
+}</pre>
+            </div>
+
+            <div class="real-world-example">
+                <h4>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    Real-World Example
+                </h4>
+                <p>The box model is essential for creating consistent layouts and spacing in web design. It's used in everything from simple text blocks to complex grid systems and responsive designs.</p>
+            </div>
+
+            <div class="interactive-demo">
+                <h5>
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                    Try it Yourself
+                </h5>
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="runDemo()">Run Demo</button>
+                    <button class="demo-btn" onclick="resetDemo()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runDemo() {
+            // Add demo functionality here
+            console.log('Running Box Model demo...');
+        }
+
+        function resetDemo() {
+            // Add reset functionality here
+            console.log('Resetting Box Model demo...');
+        }
+    </script>
+</body>
+</html> 

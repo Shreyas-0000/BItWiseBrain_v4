@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to CSS & Types - BitWiseBrain</title>
+    <link rel="stylesheet" href="../../css/shared-navbar.css">
+    <link rel="stylesheet" href="../../css/courses.css">
+    <link rel="stylesheet" href="../../css/course-details.css">
+    <link rel="stylesheet" href="../../css/game.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="button-group">
+            <a href="../course-details.html" class="back-btn">← Back to CSS Topics</a>
+        </div>
+        <div class="topic-content">
+            <h2>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                Introduction to CSS & Types
+            </h2>
+            <div class="topic-description">
+                <p>CSS (Cascading Style Sheets) is used to style and layout HTML elements. It separates design from structure, making web development cleaner and more efficient.</p>
+                <p>There are three main ways to add CSS to your HTML documents: inline, internal, and external.</p>
+            </div>
+            <div class="learning-process">
+                <h3>
+                    <ion-icon name="book-outline"></ion-icon>
+                    Learning Process
+                </h3>
+                <div class="key-concepts">
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Inline CSS: Applied directly to HTML elements using the style attribute
+                    </li>
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Internal CSS: Defined within the HTML document using &lt;style&gt; tags
+                    </li>
+                    <li>
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        External CSS: Stored in separate .css files and linked to HTML documents
+                    </li>
+                </div>
+                <div class="code-example">
+                    <h4>Inline CSS Example:</h4>
+                    <pre>&lt;h1 style="color: blue; font-size: 24px;"&gt;Hello World&lt;/h1&gt;</pre>
+                </div>
+                <div class="code-example">
+                    <h4>Internal CSS Example:</h4>
+                    <pre>&lt;head&gt;
+  &lt;style&gt;
+    h1 {
+      color: blue;
+      font-size: 24px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</pre>
+                </div>
+                <div class="code-example">
+                    <h4>External CSS Example:</h4>
+                    <pre>/* styles.css */
+h1 {
+  color: blue;
+  font-size: 24px;
+}
+
+/* HTML file */
+&lt;link rel="stylesheet" href="styles.css"&gt;</pre>
+                </div>
+            </div>
+            <div class="real-world-example">
+                <h4>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    Real-World Example
+                </h4>
+                <p>Most modern websites use external CSS files to maintain consistent styling across multiple pages. This approach makes it easier to update the design of an entire website by modifying a single CSS file.</p>
+            </div>
+            <div class="interactive-demo">
+                <h5>
+                    <ion-icon name="code-slash-outline"></ion-icon>
+                    Interactive Demo
+                </h5>
+                <div class="demo-content">
+                    <p>Try changing the style of this text using different CSS methods:</p>
+                    <div class="demo-buttons">
+                        <button class="demo-btn" onclick="applyInlineStyle()">Apply Inline Style</button>
+                        <button class="demo-btn" onclick="applyInternalStyle()">Apply Internal Style</button>
+                        <button class="demo-btn" onclick="applyExternalStyle()">Apply External Style</button>
+                        <button class="demo-btn" onclick="resetStyles()">Reset Styles</button>
+                    </div>
+                    <div id="demo-text">This is a demo text that you can style!</div>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="../../html/quiz-setup.html" class="quiz-btn">
+                    <ion-icon name="help-circle-outline"></ion-icon>
+                    Start Quiz
+                </a>
+                <button class="puzzles-btn" onclick="startPuzzles('introduction-to-css')">
+                    <ion-icon name="puzzle-outline"></ion-icon>
+                    Puzzles
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function applyInlineStyle() {
+            document.getElementById('demo-text').style.cssText = 'color: blue; font-size: 24px; font-weight: bold;';
+        }
+
+        function applyInternalStyle() {
+            const style = document.createElement('style');
+            style.textContent = '#demo-text { color: green; font-size: 20px; font-style: italic; }';
+            document.head.appendChild(style);
+        }
+
+        function applyExternalStyle() {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'demo-styles.css';
+            document.head.appendChild(link);
+        }
+
+        function resetStyles() {
+            document.getElementById('demo-text').style.cssText = '';
+            const styles = document.querySelectorAll('style');
+            styles.forEach(style => style.remove());
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => link.remove());
+        }
+    </script>
+</body>
+</html> 

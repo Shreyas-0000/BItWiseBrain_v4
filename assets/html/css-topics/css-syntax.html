@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Syntax & Selectors - BitWiseBrain</title>
+    <link rel="stylesheet" href="../../css/css-topics.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="css-topic-container">
+        <h2 class="css-topic-header">
+            <ion-icon name="code-slash-outline"></ion-icon>
+            CSS Syntax, Selectors & Specificity
+        </h2>
+        
+        <div class="css-topic-description">
+            <p>CSS rules consist of a selector and a declaration block. Selectors target HTML elements. Specificity determines which styles apply when multiple rules match.</p>
+        </div>
+
+        <div class="learning-process">
+            <h3>
+                <ion-icon name="book-outline"></ion-icon>
+                Learning Process
+            </h3>
+            
+            <div class="key-concepts">
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Selectors target HTML elements to apply styles
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Declaration blocks contain property-value pairs
+                </li>
+                <li>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Specificity determines which styles take precedence
+                </li>
+            </div>
+
+            <div class="code-example">
+                <h4>Basic CSS Rule:</h4>
+                <pre>/* Selector: h1, Property: color, Value: blue */
+h1 {
+  color: blue;
+  font-size: 24px;
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Class Selector:</h4>
+                <pre>.text {
+  color: red;
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>ID Selector:</h4>
+                <pre>#main {
+  background-color: yellow;
+}</pre>
+            </div>
+
+            <div class="real-world-example">
+                <h4>
+                    <ion-icon name="globe-outline"></ion-icon>
+                    Real-World Example
+                </h4>
+                <p>Understanding CSS specificity is crucial for maintaining and debugging styles in large projects.</p>
+            </div>
+
+            <div class="interactive-demo">
+                <h5>
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                    Try it Yourself
+                </h5>
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="runDemo()">Run Demo</button>
+                    <button class="demo-btn" onclick="resetDemo()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runDemo() {
+            // Add demo functionality here
+            console.log('Running CSS Syntax demo...');
+        }
+
+        function resetDemo() {
+            // Add reset functionality here
+            console.log('Resetting CSS Syntax demo...');
+        }
+    </script>
+</body>
+</html> 
