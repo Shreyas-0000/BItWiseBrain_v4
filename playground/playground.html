@@ -342,16 +342,11 @@
                 <span class="nav-text">Quizzes</span>
             </a>
             
-            <a href="playground.html" class="nav-item active">
+            <a href="./playground.html" class="nav-item active">
                 <ion-icon name="code-slash-outline"></ion-icon>
                 <span class="nav-text">Playground</span>
             </a>
-
-            <a href="../leaderboard.html" class="nav-item">
-                <ion-icon name="trophy-outline"></ion-icon>
-                <span class="nav-text">Leaderboard</span>
-            </a>
-
+            
             <a href="../puzzles/main.html" class="nav-item">
                 <ion-icon name="extension-puzzle-outline"></ion-icon>
                 <span class="nav-text">Puzzles</span>
@@ -386,10 +381,19 @@
                 <div class="output-panel">
                     <div class="panel-header">
                         <span class="panel-title">Output</span>
-                        <button id="run-btn" class="run-button">
-                            <ion-icon name="play"></ion-icon>
-                            Run
-                        </button>
+                        <div class="controls-group">
+                            <div class="autorun-container">
+                                <label class="autorun-label">
+                                    <input type="checkbox" id="autorun" class="autorun-checkbox">
+                                    <span class="checkmark"></span>
+                                    Auto-run
+                                </label>
+                            </div>
+                            <button id="run-btn" class="run-button">
+                                <ion-icon name="play"></ion-icon>
+                                Run
+                            </button>
+                        </div>
                     </div>
                     <div class="output-container">
                         <iframe id="output"></iframe>

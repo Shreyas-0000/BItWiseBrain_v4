@@ -28,68 +28,152 @@ document.addEventListener('DOMContentLoaded', function() {
     updateScoreDisplay();
 
     // Quiz setup functionality
-    const difficultySelect = document.getElementById('difficulty');
-    const countButtons = document.querySelectorAll('.count-btn');
+    const languageSelect = document.getElementById('language');
+    const questionLimitSelect = document.getElementById('question-limit');
     const startButton = document.getElementById('start-quiz');
-
-    let selectedCount = null;
-
-    // Handle question count selection
-    countButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            countButtons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-            selectedCount = button.dataset.count;
-            checkFormValidity();
-        });
-    });
 
     // Check if all options are selected
     function checkFormValidity() {
-        const isValid = difficultySelect.value && selectedCount;
+        const isValid = languageSelect.value && questionLimitSelect.value;
         startButton.disabled = !isValid;
     }
 
-    // Listen for select changes
-    difficultySelect.addEventListener('change', checkFormValidity);
+    // Handle language selection
+    languageSelect.addEventListener('change', () => {
+        // Remove the default "Select language" option when any language is selected
+        if (languageSelect.value) {
+            const defaultOption = languageSelect.querySelector('option[value=""]');
+            if (defaultOption) {
+                defaultOption.remove();
+            }
+        }
+        checkFormValidity();
+    });
+
+    // Handle question limit selection
+    questionLimitSelect.addEventListener('change', checkFormValidity);
+
+    // Initialize question limit value if it has a preselected value
+    if (questionLimitSelect.options[questionLimitSelect.selectedIndex].value) {
+        // Trigger the changed animation for the preselected value
+        const questionLimitWrapper = questionLimitSelect.closest('.select-wrapper');
+        questionLimitWrapper.classList.add('changed');
+        setTimeout(() => {
+            questionLimitWrapper.classList.remove('changed');
+        }, 1000);
+    }
+
+    // Check form validity immediately to enable button if question limit is pre-selected
+    checkFormValidity();
+
+    // Add keyboard navigation for the form
+    function setupKeyboardNavigation() {
+        // Set initial focus on language select on page load
+        languageSelect.focus();
+        
+        // Auto-open dropdown when focused
+        languageSelect.addEventListener('focus', () => {
+            languageSelect.size = 5; // Show 5 options
+            languageSelect.click(); // Simulate click to open dropdown
+        });
+        
+        languageSelect.addEventListener('blur', () => {
+            languageSelect.size = 1; // Reset to normal select
+        });
+        
+        // Handle enter key on selects to focus next element
+        languageSelect.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                questionLimitSelect.focus();
+            }
+        });
+        
+        // Auto-open dropdown when focused
+        questionLimitSelect.addEventListener('focus', () => {
+            questionLimitSelect.size = 5; // Show 5 options
+            questionLimitSelect.click(); // Simulate click to open dropdown
+        });
+        
+        questionLimitSelect.addEventListener('blur', () => {
+            questionLimitSelect.size = 1; // Reset to normal select
+        });
+        
+        questionLimitSelect.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (!startButton.disabled) {
+                    startButton.focus();
+                }
+            }
+        });
+        
+        // Allow starting quiz with Enter key when button is focused
+        startButton.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !startButton.disabled) {
+                e.preventDefault();
+                startQuiz();
+            }
+        });
+        
+        // Add global Ctrl+Enter shortcut to start quiz if form is valid
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter' && !startButton.disabled) {
+                e.preventDefault();
+                startQuiz();
+            }
+        });
+    }
+
+    // Enhance select dropdowns with animations
+    const selectWrappers = document.querySelectorAll('.select-wrapper');
+    
+    selectWrappers.forEach(wrapper => {
+        const select = wrapper.querySelector('select');
+        
+        // Add focus effects
+        select.addEventListener('focus', () => {
+            wrapper.classList.add('focused');
+        });
+        
+        select.addEventListener('blur', () => {
+            wrapper.classList.remove('focused');
+        });
+        
+        // Add change animation
+        select.addEventListener('change', () => {
+            wrapper.classList.add('changed');
+            setTimeout(() => {
+                wrapper.classList.remove('changed');
+            }, 1000);
+        });
+    });
+
+    // Function to start the quiz
+    function startQuiz() {
+        const quizSettings = {
+            language: languageSelect.value,
+            questionLimit: parseInt(questionLimitSelect.value)
+        };
+        
+        // Save settings to localStorage
+        localStorage.setItem('quizSettings', JSON.stringify(quizSettings));
+        
+        // Redirect to quiz page with animation
+        startButton.textContent = 'Starting Quiz...';
+        startButton.style.opacity = '0.7';
+        startButton.disabled = true;
+        
+        setTimeout(() => {
+            window.location.href = 'game.html';
+        }, 500);
+    }
 
     // Handle form submission
     startButton.addEventListener('click', () => {
         if (!startButton.disabled) {
-            const quizSettings = {
-                difficulty: difficultySelect.value,
-                questionCount: selectedCount
-            };
-            
-            // Save settings to localStorage
-            localStorage.setItem('quizSettings', JSON.stringify(quizSettings));
-            
-            // Redirect to quiz page with animation
-            startButton.textContent = 'Starting Quiz...';
-            startButton.style.opacity = '0.7';
-            startButton.disabled = true;
-            
-            setTimeout(() => {
-                window.location.href = 'game.html';
-            }, 500);
+            startQuiz();
         }
-    });
-
-    // Add hover effects for buttons
-    countButtons.forEach(button => {
-        button.addEventListener('mouseover', () => {
-            if (!button.classList.contains('selected')) {
-                button.style.transform = 'translateY(-2px)';
-                button.style.boxShadow = '0 5px 15px rgba(0, 255, 255, 0.2)';
-            }
-        });
-
-        button.addEventListener('mouseout', () => {
-            if (!button.classList.contains('selected')) {
-                button.style.transform = 'translateY(0)';
-                button.style.boxShadow = 'none';
-            }
-        });
     });
 
     // Add animations for form elements
@@ -108,4 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize animations
     addEntryAnimations();
+    
+    // Setup keyboard navigation
+    setupKeyboardNavigation();
 });

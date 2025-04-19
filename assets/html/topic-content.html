@@ -31,13 +31,20 @@
             padding-left: calc(var(--navbar-collapsed-width) + 2rem);
             max-width: 1200px;
             margin: 0 auto;
+            transition: padding-left 0.3s ease;
+        }
+
+        /* Adjust content wrapper when navbar is expanded */
+        .left-navbar.expanded ~ .content-wrapper {
+            padding-left: calc(var(--navbar-width) + 2rem);
         }
 
         .button-group {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
             align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            justify-content: space-between;
         }
 
         .back-btn {
@@ -186,11 +193,26 @@
             background: #ff5252;
         }
 
-        .button-group {
+        .next-topic-btn {
+            background: #7e57c2;
+            color: #fff;
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
             align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            justify-content: center;
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        .next-topic-btn:hover {
+            background: #673ab7;
+            transform: scale(1.05);
         }
 
         .content-container {
@@ -369,16 +391,21 @@
             padding: 20px;
         }
 
+        /* Quiz modal statistics */
         .stats-container {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
-            border: 1px solid rgba(30, 200, 255, 0.1);
+            top: 0;
+            left: var(--navbar-collapsed-width);
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            z-index: 100;
+            transition: left 0.3s ease;
+        }
+        
+        /* Move stats container when navbar is expanded */
+        .left-navbar.expanded ~ .stats-container {
+            left: var(--navbar-width);
         }
 
         .stats-content {
@@ -703,6 +730,20 @@
             background: #fff;
             border-radius: 15px;
         }
+
+        .content-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0;
+            width: 100%;
+        }
+
+        .left-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -719,11 +760,6 @@
                 <span class="nav-text">Home</span>
             </a>
             
-            <a href="../../reels/reel_html.html" class="nav-item">
-                <ion-icon name="play-circle-outline"></ion-icon>
-                <span class="nav-text">Reels</span>
-            </a>
-            
             <a href="../../courses.html" class="nav-item active">
                 <ion-icon name="book-outline"></ion-icon>
                 <span class="nav-text">Courses</span>
@@ -738,10 +774,10 @@
                 <ion-icon name="code-slash-outline"></ion-icon>
                 <span class="nav-text">Playground</span>
             </a>
-
-            <a href="../../leaderboard.html" class="nav-item">
-                <ion-icon name="trophy-outline"></ion-icon>
-                <span class="nav-text">Leaderboard</span>
+            
+            <a href="../../puzzles/main.html" class="nav-item">
+                <ion-icon name="extension-puzzle-outline"></ion-icon>
+                <span class="nav-text">Puzzles</span>
             </a>
         </div>
     </div>
@@ -749,6 +785,10 @@
     <div class="content-wrapper">
         <div class="button-group">
             <a href="course-details.html" class="back-btn">← Back to Topics</a>
+            <a href="#" onclick="navigateToNextTopic(); return false;" class="next-topic-btn">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+                Next Topic
+            </a>
         </div>
         <div id="topicContent" class="topic-content">
             <!-- Topic content will be loaded here -->
@@ -830,6 +870,14 @@
         const urlParams = new URLSearchParams(window.location.search);
         const topicId = urlParams.get('topic');
 
+        // Navbar functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.left-navbar');
+        
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('expanded');
+        });
+
         // Load topic content
         document.addEventListener('DOMContentLoaded', () => {
             loadTopicContent(topicId);
@@ -868,14 +916,20 @@
                     </h3>
                     ${getLearningProcess(topic)}
                 </div>
-                <div class="button-group">
-                    <a href="../html/quiz-setup.html" class="quiz-btn">
-                        <ion-icon name="help-circle-outline"></ion-icon>
-                        Start Quiz
-                    </a>
-                    <a href="../../puzzles/main.html" class="puzzles-btn">
-                        <ion-icon name="puzzle-outline"></ion-icon>
-                        Puzzles
+                <div class="content-buttons">
+                    <div class="left-buttons">
+                        <a href="../html/quiz-setup.html" class="quiz-btn">
+                            <ion-icon name="help-circle-outline"></ion-icon>
+                            Start Quiz
+                        </a>
+                        <a href="../../puzzles/main.html" class="puzzles-btn">
+                            <ion-icon name="puzzle-outline"></ion-icon>
+                            Puzzles
+                        </a>
+                    </div>
+                    <a href="#" onclick="navigateToNextTopic(); return false;" class="next-topic-btn">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                        Next Topic
                     </a>
                 </div>
             `;
@@ -1503,14 +1557,6 @@ function getLocation() {
             initializeQuiz(topicId);
         });
 
-        // Navbar functionality
-        const hamburger = document.querySelector('.hamburger');
-        const navbar = document.querySelector('.left-navbar');
-        
-        hamburger.addEventListener('click', () => {
-            navbar.classList.toggle('expanded');
-        });
-
         // Add event listener for end quiz button
         document.getElementById('end-quiz').addEventListener('click', function() {
             const quizModal = document.getElementById('quizModal');
@@ -1648,6 +1694,27 @@ function getLocation() {
         // Add this function to handle going back to the previous page
         function goBack() {
             window.history.back();
+        }
+
+        // Add function to navigate to the next topic
+        function navigateToNextTopic() {
+            // Get current topic ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentTopicId = parseInt(urlParams.get('topic') || '0');
+            
+            // Get the stored course data
+            const storedData = JSON.parse(localStorage.getItem('currentCourseData'));
+            if (!storedData || !storedData.data || !storedData.data.topics) {
+                console.error('No course data found');
+                return;
+            }
+            
+            // Calculate next topic ID
+            const totalTopics = storedData.data.topics.length;
+            const nextTopicId = (currentTopicId + 1) % totalTopics;
+            
+            // Navigate to the next topic
+            window.location.href = `topic-content.html?topic=${nextTopicId}`;
         }
     </script>
 </body>

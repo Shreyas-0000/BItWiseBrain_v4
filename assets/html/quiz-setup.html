@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitWise Brain - Quiz Setup</title>
+    <link rel="stylesheet" href="../css/shared-navbar.css">
     <link rel="stylesheet" href="../css/quiz-setup.css">
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
@@ -36,12 +37,7 @@
                 <ion-icon name="code-slash-outline"></ion-icon>
                 <span class="nav-text">Playground</span>
             </a>
-
-            <a href="../../leaderboard.html" class="nav-item">
-                <ion-icon name="trophy-outline"></ion-icon>
-                <span class="nav-text">Leaderboard</span>
-            </a>
-
+            
             <a href="../../puzzles/main.html" class="nav-item">
                 <ion-icon name="extension-puzzle-outline"></ion-icon>
                 <span class="nav-text">Puzzles</span>
@@ -64,22 +60,28 @@
             <h1>Quiz Setup</h1>
             <div class="setup-form">
                 <div class="form-group">
-                    <label>Difficulty Level</label>
-                    <select id="difficulty" required>
-                        <option value="">Select level</option>
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
+                    <label>Programming Language</label>
+                    <div class="select-wrapper">
+                        <select id="language" required>
+                            <option value="">Select language</option>
+                            <option value="HTML">HTML</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Python">Python</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label>Number of Questions</label>
-                    <div class="question-count-grid">
-                        <button class="count-btn" data-count="10">10</button>
-                        <button class="count-btn" data-count="25">25</button>
-                        <button class="count-btn" data-count="50">50</button>
-                        <button class="count-btn" data-count="infinite">Infinite</button>
+                    <div class="select-wrapper">
+                        <select id="question-limit" required>
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                        </select>
                     </div>
                 </div>
 
@@ -89,5 +91,14 @@
     </div>
 
     <script src="../js/quiz-setup.js"></script>
+    <script>
+        // Navbar functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.left-navbar');
+        
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('expanded');
+        });
+    </script>
 </body>
 </html>

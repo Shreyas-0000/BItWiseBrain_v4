@@ -322,11 +322,26 @@ function showTopics(course) {
     // Clear previous topics
     topicsList.innerHTML = '';
     
-    // Add topics
+    // Store the current course data in localStorage
+    localStorage.setItem('currentCourseData', JSON.stringify({
+        course: currentCourse,
+        data: courseTopics[currentCourse]
+    }));
+    
+    // Determine correct path based on current location
+    const basePath = window.location.pathname.includes('/assets/') ? '../' : 'assets/html/';
+    
+    // Add topics as clickable items
     courseData.topics.forEach((topic, index) => {
         const topicItem = document.createElement('div');
         topicItem.className = 'topic-item';
-        topicItem.textContent = `${index + 1}. ${topic}`;
+        
+        // Create a link for the topic
+        const topicLink = document.createElement('a');
+        topicLink.href = `${basePath}topic-content.html?topic=${index}`;
+        topicLink.textContent = `${index + 1}. ${topic}`;
+        
+        topicItem.appendChild(topicLink);
         topicsList.appendChild(topicItem);
     });
     
@@ -406,6 +421,11 @@ function loadCourseContent() {
                                                     <ion-icon name="play-outline"></ion-icon>
                                                     Start
                                                 </button>
+                                                ${index < data.topics.length - 1 ? 
+                                                `<button class="next-topic-btn" onclick="startTopic('${index + 1}')">
+                                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                                    Next Topic
+                                                </button>` : ''}
                                             </div>
                                         </div>
                                     `;
@@ -421,6 +441,11 @@ function loadCourseContent() {
                                                     <ion-icon name="play-outline"></ion-icon>
                                                     Start
                                                 </button>
+                                                ${index < data.topics.length - 1 ? 
+                                                `<button class="next-topic-btn" onclick="startTopic('${index + 1}')">
+                                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                                    Next Topic
+                                                </button>` : ''}
                                             </div>
                                         </div>
                                     `;

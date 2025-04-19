@@ -113,5 +113,14 @@
     </div>
 
     <script src="assets/js/courses.js"></script>
+    <script>
+        // Navbar functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.left-navbar');
+        
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('expanded');
+        });
+    </script>
 </body>
 </html>
